@@ -24,21 +24,21 @@ echo ✅ Python найден
 
 REM Check if Node.js is installed
 echo.
-echo [2/4] Проверка Node.js...
+echo [2/4] Checking Node.js...
 node --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo ❌ Node.js не найден! Установите Node.js 20.x или выше.
-    echo    Скачать: https://nodejs.org/
+    echo [ERROR] Node.js not found! Please install Node.js 20+
+    echo         Download: https://nodejs.org/
     pause
     exit /b 1
 )
-echo ✅ Node.js найден
+echo [OK] Node.js found
 
 REM Install Python dependencies if needed
 echo.
-echo [3/4] Проверка зависимостей Python...
+echo [3/4] Checking Python dependencies...
 if not exist "memory_service\requirements.txt" (
-    echo ❌ Файл requirements.txt не найден!
+    echo [ERROR] requirements.txt not found!
     pause
     exit /b 1
 )
@@ -47,32 +47,32 @@ cd memory_service
 if not exist "data" mkdir data
 if not exist "logs" mkdir logs
 
-echo Установка зависимостей Python...
+echo Installing Python dependencies...
 pip install -q -r requirements.txt
 if %errorlevel% neq 0 (
-    echo ❌ Ошибка установки зависимостей Python
+    echo [ERROR] Failed to install Python dependencies
     cd ..
     pause
     exit /b 1
 )
-echo ✅ Зависимости Python установлены
+echo [OK] Python dependencies installed
 cd ..
 
 REM Check Dyad dependencies
 echo.
-echo [4/4] Проверка зависимостей Dyad...
+echo [4/4] Checking Dyad dependencies...
 cd dyad
 if not exist "node_modules" (
-    echo Установка зависимостей Dyad (это может занять несколько минут)...
+    echo Installing Dyad dependencies (this may take a few minutes)...
     call npm install
     if %errorlevel% neq 0 (
-        echo ❌ Ошибка установки зависимостей Dyad
+        echo [ERROR] Failed to install Dyad dependencies
         cd ..
         pause
         exit /b 1
     )
 )
-echo ✅ Зависимости Dyad готовы
+echo [OK] Dyad dependencies ready
 cd ..
 
 echo.
