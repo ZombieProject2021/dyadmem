@@ -63,16 +63,29 @@ echo.
 echo [4/4] Checking Dyad dependencies...
 cd dyad
 if not exist "node_modules" (
-    echo Installing Dyad dependencies (this may take a few minutes)...
+    echo.
+    echo ================================================================
+    echo [IMPORTANT] Dyad dependencies not installed!
+    echo ================================================================
+    echo.
+    echo This is normal for first run.
+    echo Installing now - this will take 5-10 minutes...
+    echo.
     call npm install
     if %errorlevel% neq 0 (
         echo [ERROR] Failed to install Dyad dependencies
+        echo.
+        echo Please run manually:
+        echo   cd dyad
+        echo   npm install
         cd ..
         pause
         exit /b 1
-    )
+    fi
+    echo [OK] Dyad dependencies installed
+) else (
+    echo [OK] Dyad dependencies ready
 )
-echo [OK] Dyad dependencies ready
 cd ..
 
 echo.
