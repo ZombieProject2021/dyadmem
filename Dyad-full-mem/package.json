@@ -1,0 +1,21 @@
+{
+  "name": "dyad-full-mem",
+  "version": "1.0.0",
+  "description": "Dyad with Infinite Memory - Integration with EverMemOS",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd dyad && npm start",
+    "memory:start": "cd memory_service && python server.py",
+    "memory:test": "cd memory_service && python test_service.py",
+    "memory:stats": "cd memory_service && python manage.py stats",
+    "install:all": "cd dyad && npm install && cd ../memory_service && pip install -r requirements.txt"
+  },
+  "keywords": [
+    "dyad",
+    "ai",
+    "memory",
+    "evermemos"
+  ],
+  "author": "",
+  "license": "MIT"
+}
