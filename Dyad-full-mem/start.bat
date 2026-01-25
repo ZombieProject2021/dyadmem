@@ -1,26 +1,25 @@
 @echo off
-chcp 65001 > nul
 color 0A
 echo.
-echo ╔═══════════════════════════════════════════════════════════════╗
-echo ║                                                               ║
-echo ║          DYAD WITH INFINITE MEMORY - STARTING                 ║
-echo ║                                                               ║
-echo ║   Dyad AI App Builder + EverMemOS Memory System               ║
-echo ║                                                               ║
-echo ╚═══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo.
+echo          DYAD WITH INFINITE MEMORY - STARTING
+echo.
+echo   Dyad AI App Builder + EverMemOS Memory System
+echo.
+echo ================================================================
 echo.
 
 REM Check if Python is installed
-echo [1/4] Проверка Python...
+echo [1/4] Checking Python...
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo ❌ Python не найден! Установите Python 3.10 или выше.
-    echo    Скачать: https://www.python.org/downloads/
+    echo [ERROR] Python not found! Please install Python 3.10+
+    echo         Download: https://www.python.org/downloads/
     pause
     exit /b 1
 )
-echo ✅ Python найден
+echo [OK] Python found
 
 REM Check if Node.js is installed
 echo.
@@ -76,31 +75,31 @@ echo [OK] Dyad dependencies ready
 cd ..
 
 echo.
-echo ═══════════════════════════════════════════════════════════════
+echo ================================================================
 echo.
-echo 🚀 ЗАПУСК СЕРВИСОВ...
+echo STARTING SERVICES...
 echo.
-echo ═══════════════════════════════════════════════════════════════
+echo ================================================================
 echo.
 
 REM Start Memory Service in a new window
-echo [1/2] Запуск Memory Service на порту 8002...
+echo [1/2] Starting Memory Service on port 8002...
 start "Memory Service" cmd /k "cd memory_service && python server.py"
 
 REM Wait a bit for Memory Service to start
-echo Ожидание запуска Memory Service (5 секунд)...
+echo Waiting for Memory Service to start (5 seconds)...
 timeout /t 5 /nobreak > nul
 
 REM Check if Memory Service is running
 curl -s http://localhost:8002/health > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ✅ Memory Service запущен успешно!
+    echo [OK] Memory Service started successfully!
 ) else (
-    echo ⚠️  Memory Service может быть еще не запущен, проверьте окно сервиса
+    echo [WARN] Memory Service may still be starting, check the service window
 )
 
 echo.
-echo [2/2] Запуск Dyad...
+echo [2/2] Starting Dyad...
 echo.
 
 REM Start Dyad
@@ -109,20 +108,20 @@ start "Dyad Application" cmd /k "npm start"
 cd ..
 
 echo.
-echo ═══════════════════════════════════════════════════════════════
+echo ================================================================
 echo.
-echo ✅ ВСЕ СЕРВИСЫ ЗАПУЩЕНЫ!
+echo [SUCCESS] ALL SERVICES STARTED!
 echo.
-echo 📊 Статус:
-echo    • Memory Service: http://localhost:8002
-echo    • Dyad: Откроется автоматически
+echo Status:
+echo    - Memory Service: http://localhost:8002
+echo    - Dyad: Will open automatically
 echo.
-echo 💡 Подсказки:
-echo    • Все чаты автоматически сохраняются в долговременную память
-echo    • Для остановки закройте окна Memory Service и Dyad
-echo    • Логи Memory Service: memory_service/logs/
+echo Tips:
+echo    - All chats are automatically saved to long-term memory
+echo    - To stop: close Memory Service and Dyad windows
+echo    - Memory Service logs: memory_service/logs/
 echo.
-echo ═══════════════════════════════════════════════════════════════
+echo ================================================================
 echo.
-echo Нажмите любую клавишу для выхода...
+echo Press any key to exit...
 pause > nul
