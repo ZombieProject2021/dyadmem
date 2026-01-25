@@ -6,10 +6,6 @@ from datetime import datetime
 from typing import List, Dict, Any, Optional
 import logging
 from pathlib import Path
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from rank_bm25 import BM25Okapi
 
 logger = logging.getLogger(__name__)
 
@@ -31,9 +27,6 @@ class MemoryManager:
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.db = None
-        self.vectorizer = TfidfVectorizer(max_features=1000)
-        self.bm25 = None
-        self.corpus = []
         
     async def initialize(self):
         """Initialize database and create tables"""
