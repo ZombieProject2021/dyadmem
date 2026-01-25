@@ -14,16 +14,35 @@
 ### Решение:
 Автоматическое сохранение всей истории чатов в долговременную память с умным поиском.
 
-## 📦 Состав
+## 📁 Структура проекта
 
 ```
 Dyad-full-mem/
 ├── dyad/              # Dyad приложение (Electron)
-├── memory_service/    # Сервис памяти (FastAPI + SQLite)
+├── memory_service/    # Memory Service (FastAPI + SQLite)
+│   ├── import_history.py  # 🆕 Импорт старой истории
+│   └── ...
 ├── config/            # Конфигурация
 ├── start.bat          # Запуск для Windows
+├── start.sh           # Запуск для Linux/Mac
 └── README.md          # Эта инструкция
 ```
+
+## 📥 Импорт старой истории
+
+Если у вас уже есть проекты в обычном Dyad, вы можете импортировать всю историю:
+
+```bash
+cd memory_service
+python import_history.py /path/to/dyad/sqlite.db
+```
+
+**Где найти базу Dyad:**
+- Windows: `%APPDATA%\dyad\sqlite.db`
+- Linux: `~/.config/dyad/sqlite.db`
+- Mac: `~/Library/Application Support/dyad/sqlite.db`
+
+📖 [Полная инструкция по импорту](IMPORT_OLD_HISTORY.md)
 
 ## ⚙️ Установка
 
