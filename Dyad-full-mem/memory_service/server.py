@@ -55,11 +55,17 @@ class SearchMemoryRequest(BaseModel):
     query: str
     app_id: Optional[str] = None
     limit: int = 10
+    
+    class Config:
+        arbitrary_types_allowed = True
 
 class MemoryResponse(BaseModel):
     success: bool
     message: Optional[str] = None
     data: Optional[Any] = None
+    
+    class Config:
+        arbitrary_types_allowed = True
 
 @app.on_event("startup")
 async def startup_event():

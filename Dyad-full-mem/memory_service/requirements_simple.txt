@@ -1,0 +1,14 @@
+# Requirements for Pydantic v1 compatibility (no Rust needed!)
+
+# Core Framework
+fastapi==0.109.0
+uvicorn==0.27.0
+
+# Pydantic v1 - NO RUST COMPILATION!
+pydantic==1.10.13
+
+# Other dependencies
+python-dotenv==1.0.0
+aiosqlite==0.19.0
+rank-bm25==0.2.2
+python-multipart==0.0.6
