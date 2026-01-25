@@ -1,0 +1,44 @@
+{
+  "selectedModel": {
+    "name": "auto",
+    "provider": "auto"
+  },
+  "providerSettings": {
+    "google": {
+      "apiKey": {
+        "value": "djEwxTOy3gA8Qv4lsmLx17p47bYdgbFodCDiT6IDelV34fMrsmio9m2BoY89MH3QQ0mOd2VnXe8LQe18esAT/zx9OPJ9Dw==",
+        "encryptionType": "electron-safe-storage"
+      }
+    }
+  },
+  "agentToolConsents": {
+    "add_dependency": "always",
+    "execute_sql": "always",
+    "web_search": "always",
+    "web_crawl": "always"
+  },
+  "autoApproveChanges": true,
+  "telemetryConsent": "opted_out",
+  "telemetryUserId": "b6e67655-4477-4807-8b4c-7e6e2ac1a1e7",
+  "hasRunBefore": true,
+  "experiments": {},
+  "lastShownReleaseNotesVersion": "0.34.0-beta.1",
+  "enableProLazyEditsMode": true,
+  "enableProSmartFilesContextMode": true,
+  "selectedTemplateId": "react",
+  "selectedThemeId": "default",
+  "selectedChatMode": "build",
+  "enableAutoFixProblems": true,
+  "enableNativeGit": false,
+  "enableAutoUpdate": false,
+  "releaseChannel": "stable",
+  "isRunning": false,
+  "lastKnownPerformance": {
+    "timestamp": 1769362690033,
+    "memoryUsageMB": 353,
+    "cpuUsagePercent": 8.77,
+    "systemMemoryUsageMB": 27058,
+    "systemMemoryTotalMB": 32534,
+    "systemCpuPercent": 12.72
+  }
+}

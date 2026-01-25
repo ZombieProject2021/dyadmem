@@ -1,0 +1,18 @@
+# Minimal dependencies - no Rust compilation required
+
+# Core Framework
+fastapi==0.110.1
+uvicorn==0.25.0
+python-dotenv==1.0.1
+
+# Data validation - minimal version
+pydantic==2.4.2
+
+# Database
+aiosqlite==0.19.0
+
+# Search (pure Python)
+rank-bm25==0.2.2
+
+# Utils
+python-multipart==0.0.9

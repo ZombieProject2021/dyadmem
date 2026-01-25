@@ -1,0 +1,25 @@
+# Memory Service Dependencies
+# Core Framework
+fastapi==0.110.1
+uvicorn[standard]==0.25.0
+python-dotenv==1.0.1
+
+# Data validation - use older version to avoid Rust compilation
+pydantic==2.6.4
+pydantic-core==2.16.3
+
+# Database
+sqlalchemy==2.0.25
+aiosqlite==0.19.0
+
+# AI/ML - optional, removed to avoid compilation issues
+# openai==1.99.9
+# tiktoken==0.7.0
+# numpy==1.26.4
+# scikit-learn==1.4.1.post1
+
+# Search
+rank-bm25==0.2.2
+
+# Utils
+python-multipart==0.0.9
