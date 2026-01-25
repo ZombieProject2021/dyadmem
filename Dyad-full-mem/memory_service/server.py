@@ -37,12 +37,18 @@ class Message(BaseModel):
     content: str
     timestamp: Optional[datetime] = None
     metadata: Optional[Dict[str, Any]] = None
+    
+    class Config:
+        arbitrary_types_allowed = True
 
 class StoreMemoryRequest(BaseModel):
     session_id: str
     app_id: Optional[str] = None
     messages: List[Message]
     metadata: Optional[Dict[str, Any]] = None
+    
+    class Config:
+        arbitrary_types_allowed = True
 
 class SearchMemoryRequest(BaseModel):
     session_id: str
