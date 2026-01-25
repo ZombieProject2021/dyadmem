@@ -47,7 +47,8 @@ if not exist "data" mkdir data
 if not exist "logs" mkdir logs
 
 echo Installing Python dependencies...
-pip install -q -r requirements.txt
+pip install --upgrade pip wheel
+pip install -q fastapi==0.110.1 uvicorn==0.25.0 pydantic==2.4.2 python-dotenv==1.0.1 aiosqlite==0.19.0 rank-bm25==0.2.2 python-multipart==0.0.9
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to install Python dependencies
     cd ..
